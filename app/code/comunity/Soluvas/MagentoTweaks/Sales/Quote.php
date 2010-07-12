@@ -30,16 +30,21 @@ class Soluvas_MagentoTweaks_Sales_Quote extends Mage_Sales_Model_Quote
      */
     protected function _getAddressByType($type)
     {
-    	Mage::log("Soluvas_MagentoTweaks_Sales_Quote::_getAddressByType($type)");
+//    	Mage::log("Soluvas_MagentoTweaks_Sales_Quote::_getAddressByType($type)");
         foreach ($this->getAddressesCollection() as $address) {
             if ($address->getAddressType() == $type && !$address->isDeleted()) {
                 return $address;
             }
         }
         $address = Mage::getModel('sales/quote_address')->setAddressType($type);
-        if ($type == Mage_Sales_Model_Quote_Address::TYPE_SHIPPING) {
-        	Mage::log("Soluvas_MagentoTweaks_Sales_Quote::_getAddressByType: set SameAsBilling=1");
-        	$address->setSameAsBilling(1);
+        if (Mage::getStoreConfig('magentotweaks/settings/sameasbilling') == 1) {
+//        	Mage::log("Same as billing enabled");
+	        if ($type == Mage_Sales_Model_Quote_Address::TYPE_SHIPPING) {
+//	        	Mage::log("Soluvas_MagentoTweaks_Sales_Quote::_getAddressByType: set SameAsBilling=1");
+	        	$address->setSameAsBilling(1);
+	        }
+        } else {
+//			Mage::log("Same as billing disabled");
         }
         $this->addAddress($address);
         return $address;
