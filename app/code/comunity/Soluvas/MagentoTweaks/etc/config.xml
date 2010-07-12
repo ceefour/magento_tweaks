@@ -39,9 +39,10 @@
 	</global>
 	<default>
 		<magentotweaks>
-			<settings>
+			<checkout>
+				<register>1</register>
 				<sameasbilling>1</sameasbilling>
-			</settings>
+			</checkout>
 		</magentotweaks>
 	</default>
 	<!--
