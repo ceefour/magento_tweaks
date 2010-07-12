@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Soluvas
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ *
+ * @category   Soluvas
+ * @package    Soluvas_MagentoTweaks
+ * @copyright  Copyright (c) 2010 Soluvas (http://www.soluvas.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+	<modules>
+		<Soluvas_MagentoTweaks>
+			<version>1.0.0</version>
+		</Soluvas_MagentoTweaks>
+	</modules>
+	<global>
+		<helpers>
+            <magentotweaks>
+                <class>Soluvas_MagentoTweaks_Helper</class>
+            </magentotweaks>
+        </helpers>
+		<models>
+			<sales>
+				<rewrite>
+					<quote>Soluvas_MagentoTweaks_Sales_Quote</quote>
+				</rewrite>
+			</sales>
+		</models>
+	</global>
+	<default>
+		<magentotweaks>
+			<settings>
+				<sameasbilling>1</sameasbilling>
+			</settings>
+		</magentotweaks>
+	</default>
+	<!--
+    <blocks>
+    	<checkout>
+			<rewrite>
+				<onepage_billing>Soluvas_MagentoTweaks_Block_Onepage_Billing</onepage_billing>
+			</rewrite>
+    	</checkout>
+    </blocks>
+	-->
+</config>
