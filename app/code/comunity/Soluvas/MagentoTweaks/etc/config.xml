@@ -35,6 +35,13 @@
         </routers>
 	</frontend>
 	<global>
+		<blocks>
+			<catalog>
+				<rewrite>
+					<product_view>Soluvas_MagentoTweaks_Block_Productview</product_view>
+				</rewrite>
+			</catalog>
+		</blocks>
 		<helpers>
             <magentotweaks>
                 <class>Soluvas_MagentoTweaks_Helper</class>

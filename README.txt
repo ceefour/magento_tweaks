@@ -11,5 +11,6 @@ Useful tweaks for Magento Commerce, including:
  5. Exclude Enable Cookies page in Google Sitemap XML
  6. Redirect 301 Permanent from 'home' CMS page to front page
  7. Always use Full Product URLs (i.e. /category/product.html instead of /product.html)
- 8. ...more to come.
+ 8. Related to Full Product URLs: Product Canonical URLs (when enabled) also reflect that setting.
+ 9. ...more to come.
  
