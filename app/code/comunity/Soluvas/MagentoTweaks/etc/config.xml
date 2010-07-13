@@ -68,22 +68,43 @@
             <cms>
                 <rewrite>
                     <page>
-                        <to>Soluvas_MagentoTweaks/cmspage</to>
+                        <to>magentotweaks/cmspage</to>
 						<!--
                         <override_actions>true</override_actions>
                         <actions>
-                           <view><to>Soluvas_MagentoTweaks/cmspage/view</to></view>
+                           <view><to>magentotweaks/cmspage/view</to></view>
                         </actions>
 						-->
                     </page>
                 </rewrite>
             </cms>
+						<!--
+			<catalog>
+				<rewrite>
+					<product>
+						<to>magentotweaks/catalogproduct</to>
+                        <override_actions>true</override_actions>
+                        <actions>
+                           <view><to>magentotweaks/catalogproduct/view</to></view>
+                        </actions>
+					</product>
+				</rewrite>
+			</catalog>
+						-->
+			
 		</routers>
+		<rewrite>
+			<magentotweaks_catalogproduct>
+				<from><![CDATA[#^catalog/product/#]]></from>
+				<to>magentotweaks/catalogproduct/</to>
+			</magentotweaks_catalogproduct>
+		</rewrite>
 	</global>
 	<default>
 		<magentotweaks>
 			<catalog>
 				<fullproductpath>1</fullproductpath>
+				<redirectproduct>1</redirectproduct>
 			</catalog>
 			<cms>
 				<redirecthome>1</redirecthome>

@@ -13,5 +13,6 @@ Useful tweaks for Magento Commerce, including:
  7. Always use Full Product URLs (i.e. /category/product.html instead of /product.html)
  8. Related to Full Product URLs: Product Canonical URLs (when enabled) also reflect that setting.
  9. Related to Full Product URLs: Google Sitemap XML also reflect that setting.
- 10. ...more to come.
+ 10. Related to Full Product URLs: Redirect Short Product URL to Full Product URL page.
+ 11. ...more to come.
  
