@@ -41,8 +41,8 @@ class Soluvas_MagentoTweaks_CmspageController extends Mage_Cms_PageController
 				$pageUrl = $page->getIdentifier();
 		        $homeUrl = Mage::getStoreConfig(Mage_Cms_Helper_Page::XML_PATH_HOME_PAGE);
 		        if ($pageUrl == $homeUrl) {
-		        	Mage::log('Redirecting to '. Mage::getUrl(''));
-		        	return $this->getResponse()->setRedirect(Mage::getUrl(''), 301);
+		        	Mage::log('Redirecting to '. Mage::getBaseUrl());
+		        	return $this->getResponse()->setRedirect(Mage::getBaseUrl(), 301);
 		        }
 			}
         }
