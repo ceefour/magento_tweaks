@@ -23,6 +23,17 @@
 			<version>1.0.0</version>
 		</Soluvas_MagentoTweaks>
 	</modules>
+	<frontend>
+        <routers>
+         <magentotweaks>
+            <use>standard</use>
+            <args>
+               <module>Soluvas_MagentoTweaks</module>
+               <frontName>magentotweaks</frontName>
+            </args>
+         </magentotweaks>
+        </routers>
+	</frontend>
 	<global>
 		<helpers>
             <magentotweaks>
@@ -41,6 +52,21 @@
             	</rewrite>
             </sitemap>
 		</models>
+		<routers>
+            <cms>
+                <rewrite>
+                    <page>
+                        <to>Soluvas_MagentoTweaks/cmspage</to>
+						<!--
+                        <override_actions>true</override_actions>
+                        <actions>
+                           <view><to>Soluvas_MagentoTweaks/cmspage/view</to></view>
+                        </actions>
+						-->
+                    </page>
+                </rewrite>
+            </cms>
+		</routers>
 	</global>
 	<default>
 		<magentotweaks>
