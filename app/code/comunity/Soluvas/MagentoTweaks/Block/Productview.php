@@ -57,7 +57,7 @@ class Soluvas_MagentoTweaks_Block_Productview extends Mage_Catalog_Block_Product
             }
             if ($this->helper('catalog/product')->canUseCanonicalTag()) {
                 $params = array(/*'_ignore_category'=>true*/);
-                if (Mage::getStoreConfig('magentotweaks/catalog/fullproductpath') == 0)
+                if (Mage::getStoreConfig('magentotweaks/catalog/fullproductpath', $this->getStoreId()) == 0)
                 	$params['_ignore_category'] = true;
                 $headBlock->addLinkRel('canonical', $product->getUrlModel()->getUrl($product, $params));
             }

@@ -74,10 +74,16 @@ class Soluvas_MagentoTweaks_Model_Sitemap extends Mage_Sitemap_Model_Sitemap
         
         /**
          * Generate categories sitemap
+         * ... while at the same time preparing category path prefixes for products.
+         * This isn't fastest nor the correctest way to do it, but it's the one I think more reasonable.
+         * The fastest one would be to change Sitemap_Model_Mysql_Catalog_Product::getCollection().
+         * The correctest way would be to load each product and call getUrlPath() but that would be terribly slow.
          */
+		$productPrefixes = array();		
         $changefreq = (string)Mage::getStoreConfig('sitemap/category/changefreq', $storeId);
         $priority   = (string)Mage::getStoreConfig('sitemap/category/priority', $storeId);
         $collection = Mage::getResourceModel('sitemap/catalog_category')->getCollection($storeId);
+        $categoryModel = Mage::getModel('catalog/category');
         foreach ($collection as $item) {
             $xml = sprintf('<url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%.1f</priority></url>',
                 htmlspecialchars($baseUrl . $item->getUrl()),
@@ -86,18 +92,28 @@ class Soluvas_MagentoTweaks_Model_Sitemap extends Mage_Sitemap_Model_Sitemap
                 $priority
             );
             $io->streamWrite($xml);
+            // prepare prefixes
+            if (Mage::getStoreConfig('magentotweaks/catalog/fullproductpath', $this->getStoreId()) == 1) {
+            	$categoryModel->load($item->getId());
+	            $products = $categoryModel->getProductCollection();
+	        	$prefix = str_replace('.html', '', $item->getUrl()) .'/';
+	        	foreach ($products as $product) {
+	        		$productPrefixes[ $product->getId() ] = $prefix;
+	        	}
+            }
         }
         unset($collection);
 
         /**
          * Generate products sitemap
+         * ... with full product URLs (category path prepended)
          */
         $changefreq = (string)Mage::getStoreConfig('sitemap/product/changefreq', $storeId);
         $priority   = (string)Mage::getStoreConfig('sitemap/product/priority', $storeId);
         $collection = Mage::getResourceModel('sitemap/catalog_product')->getCollection($storeId);
         foreach ($collection as $item) {
             $xml = sprintf('<url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%.1f</priority></url>',
-                htmlspecialchars($baseUrl . $item->getUrl()),
+                htmlspecialchars($baseUrl . $productPrefixes[$item->getId()] . $item->getUrl()),
                 $date,
                 $changefreq,
                 $priority
