@@ -18,10 +18,16 @@
  */
  -->
 <config>
+    <tabs>
+        <soluvas>
+            <label>Soluvas</label>
+            <sort_order>194</sort_order>
+        </soluvas>
+    </tabs>
     <sections>
         <magentotweaks module="magentotweaks">
             <label>Magento Tweaks</label>
-            <tab>general</tab>
+            <tab>soluvas</tab>
             <frontend_type>text</frontend_type>
             <sort_order>1000</sort_order>
             <show_in_default>1</show_in_default>
