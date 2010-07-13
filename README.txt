@@ -14,5 +14,6 @@ Useful tweaks for Magento Commerce, including:
  8. Related to Full Product URLs: Product Canonical URLs (when enabled) also reflect that setting.
  9. Related to Full Product URLs: Google Sitemap XML also reflect that setting.
  10. Related to Full Product URLs: Redirect Short Product URL to Full Product URL page.
- 11. ...more to come.
+ 11. Related to Full Product URLs: Recently Viewed Products also use Full Product URL.
+ 12. ...more to come.
  

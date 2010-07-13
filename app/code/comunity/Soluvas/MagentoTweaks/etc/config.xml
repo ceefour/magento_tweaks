@@ -61,8 +61,26 @@
 			<catalog>
 				<rewrite>
 					<product>Soluvas_MagentoTweaks_Model_Product</product>
+					<!--<product_url>Soluvas_MagentoTweaks_Model_Producturl</product_url>-->
 				</rewrite>
 			</catalog>
+			<!--
+            <catalog_resource_eav_mysql4>
+				<rewrite>
+					<product_collection>Soluvas_MagentoTweaks_Model_Catalogresourceeavmysql4productcollection</product_collection>
+				</rewrite>
+            </catalog_resource_eav_mysql4>
+			-->
+            <reports_mysql4>
+            	<rewrite>
+					<!--
+                    <compared_product_index>
+                        <table>report_compared_product_index</table>
+                    </compared_product_index>
+					-->
+                    <product_index_viewed_collection>Soluvas_MagentoTweaks_Model_Reportsmysql4productindexviewedcollection</product_index_viewed_collection>
+                </rewrite>
+			</reports_mysql4>
 		</models>
 		<routers>
             <cms>
@@ -78,20 +96,6 @@
                     </page>
                 </rewrite>
             </cms>
-						<!--
-			<catalog>
-				<rewrite>
-					<product>
-						<to>magentotweaks/catalogproduct</to>
-                        <override_actions>true</override_actions>
-                        <actions>
-                           <view><to>magentotweaks/catalogproduct/view</to></view>
-                        </actions>
-					</product>
-				</rewrite>
-			</catalog>
-						-->
-			
 		</routers>
 		<rewrite>
 			<magentotweaks_catalogproduct>
