@@ -66,25 +66,4 @@ class Soluvas_MagentoTweaks_Block_Productview extends Mage_Catalog_Block_Product
         return Mage_Catalog_Block_Product_Abstract::_prepareLayout();
     }
 	
-	
-    /**
-     * Enhanced Retrieve product category id, returns the first category
-     * if Mage::registry('current_category') doesn't return a valid category ID.
-     *
-     * @return int
-     */
-    public function getCategoryId()
-    {
-        if ($category = Mage::registry('current_category')) {
-            return $category->getId();
-        }
-        if (Mage::getStoreConfig('magentotweaks/catalog/fullproductpath', $this->getStoreId()) == 1) {
-	        $categories = $this->getCategoryCollection();
-			if ($categories->getSize() >= 0) {
-				return $categories->getFirstItem()->getId();
-			}
-        }
-        return false;
-    }
-
 }
