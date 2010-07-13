@@ -64,20 +64,15 @@
 					<!--<product_url>Soluvas_MagentoTweaks_Model_Producturl</product_url>-->
 				</rewrite>
 			</catalog>
-			<!--
             <catalog_resource_eav_mysql4>
 				<rewrite>
-					<product_collection>Soluvas_MagentoTweaks_Model_Catalogresourceeavmysql4productcollection</product_collection>
+					<!--<product_collection>Soluvas_MagentoTweaks_Model_Catalogresourceeavmysql4productcollection</product_collection>-->
+					<product_compare_item_collection>Soluvas_MagentoTweaks_Model_Catalogresourceeavmysql4productcompareitemcollection</product_compare_item_collection>
 				</rewrite>
             </catalog_resource_eav_mysql4>
-			-->
             <reports_mysql4>
             	<rewrite>
-					<!--
-                    <compared_product_index>
-                        <table>report_compared_product_index</table>
-                    </compared_product_index>
-					-->
+					<product_index_compared_collection>Soluvas_MagentoTweaks_Model_Reportsmysql4productindexcomparedcollection</product_index_compared_collection>
                     <product_index_viewed_collection>Soluvas_MagentoTweaks_Model_Reportsmysql4productindexviewedcollection</product_index_viewed_collection>
                 </rewrite>
 			</reports_mysql4>

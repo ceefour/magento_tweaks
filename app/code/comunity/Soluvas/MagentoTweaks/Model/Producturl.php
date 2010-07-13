@@ -50,7 +50,7 @@ class Soluvas_MagentoTweaks_Model_Producturl extends Mage_Catalog_Model_Product_
         	$categoryId = $product->getCategoryId() && $useCategory
                 ? $product->getCategoryId() : null;
         }
-        	Mage::log('categoryId = '. $categoryId);
+//        	Mage::log('categoryId = '. $categoryId);
         
         if ($product->hasUrlDataObject()) {
             $requestPath = $product->getUrlDataObject()->getUrlRewrite();
@@ -60,7 +60,7 @@ class Soluvas_MagentoTweaks_Model_Producturl extends Mage_Catalog_Model_Product_
             $requestPath = $product->getRequestPath();
             if (empty($requestPath)) {
                 $idPath = sprintf('product/%d', $product->getEntityId());
-        	Mage::log('category: '. $categoryId);
+//        	Mage::log('category: '. $categoryId);
         	if ($categoryId) {
                 	$idPath = sprintf('%s/%d', $idPath, $categoryId);
                 }
@@ -72,7 +72,7 @@ class Soluvas_MagentoTweaks_Model_Producturl extends Mage_Catalog_Model_Product_
                     $product->setRequestPath($requestPath);
                 }
             }
-        	Mage::log('requestPath: '. $requestPath);
+//        	Mage::log('requestPath: '. $requestPath);
         }
 
         if (isset($routeParams['_store'])) {
