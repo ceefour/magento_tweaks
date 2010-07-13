@@ -35,6 +35,11 @@
 					<quote>Soluvas_MagentoTweaks_Sales_Quote</quote>
 				</rewrite>
 			</sales>
+            <sitemap>
+            	<rewrite>
+            		<sitemap>Soluvas_MagentoTweaks_Model_Sitemap</sitemap>
+            	</rewrite>
+            </sitemap>
 		</models>
 	</global>
 	<default>
@@ -43,6 +48,11 @@
 				<register>1</register>
 				<sameasbilling>1</sameasbilling>
 			</checkout>
+			<googlesitemap>
+				<front>1</front>
+				<excludehome>1</excludehome>
+				<excludecookies>1</excludecookies>
+			</googlesitemap>
 		</magentotweaks>
 	</default>
 	<!--
