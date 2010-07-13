@@ -6,5 +6,8 @@ Useful tweaks for Magento Commerce, including:
 
  1. Set default checkout type to "Register"
  2. Set default Shipping Address same as Billing Address ("Ship to this address")
- 3. ...more to come.
+ 3. Include Front page in Google Sitemap XML
+ 4. Exclude Home CMS page in Google Sitemap XML
+ 5. Exclude Enable Cookies page in Google Sitemap XML
+ 6. ...more to come.
  
