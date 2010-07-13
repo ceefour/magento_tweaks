@@ -114,12 +114,17 @@ class Soluvas_MagentoTweaks_Model_Sitemap extends Mage_Sitemap_Model_Sitemap
         $collection = Mage::getResourceModel('sitemap/cms_page')->getCollection($storeId);
         foreach ($collection as $item) {
         	// skip home
-        	if (Mage::getStoreConfig('magentotweaks/googlesitemap/excludehome', $storeId) == 1 && $item->getUrl() == 'home')
-        		continue;
-        	// skip enable-cookies
-        	if (Mage::getStoreConfig('magentotweaks/googlesitemap/excludecookies', $storeId) == 1 &&
-        		$item->getUrl() == 'enable-cookies')
+        	if (Mage::getStoreConfig('magentotweaks/googlesitemap/excludehome', $storeId) == 1) {
+        		$homeUrl = Mage::getStoreConfig(Mage_Cms_Helper_Page::XML_PATH_HOME_PAGE);	
+        		if ($item->getUrl() == $homeUrl)
         			continue;
+        	}
+        	// skip enable-cookies
+        	if (Mage::getStoreConfig('magentotweaks/googlesitemap/excludecookies', $storeId) == 1) {
+        		$noCookiesUrl = Mage::getStoreConfig(Mage_Cms_Helper_Page::XML_PATH_NO_COOKIES_PAGE);
+        		if ($item->getUrl() == $noCookiesUrl)
+        			continue;
+        	}
             $xml = sprintf('<url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%.1f</priority></url>',
                 htmlspecialchars($baseUrl . $item->getUrl()),
                 $date,
