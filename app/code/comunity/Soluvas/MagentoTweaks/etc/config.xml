@@ -51,6 +51,11 @@
             		<sitemap>Soluvas_MagentoTweaks_Model_Sitemap</sitemap>
             	</rewrite>
             </sitemap>
+			<catalog>
+				<rewrite>
+					<product>Soluvas_MagentoTweaks_Model_Product</product>
+				</rewrite>
+			</catalog>
 		</models>
 		<routers>
             <cms>
@@ -70,6 +75,9 @@
 	</global>
 	<default>
 		<magentotweaks>
+			<catalog>
+				<fullproductpath>1</fullproductpath>
+			</catalog>
 			<cms>
 				<redirecthome>1</redirecthome>
 			</cms>

@@ -9,6 +9,7 @@ Useful tweaks for Magento Commerce, including:
  3. Include Front page in Google Sitemap XML
  4. Exclude Home CMS page in Google Sitemap XML
  5. Exclude Enable Cookies page in Google Sitemap XML
- 7. Redirect 301 Permanent from 'home' CMS page to front page
+ 6. Redirect 301 Permanent from 'home' CMS page to front page
+ 7. Always use Full Product URLs (i.e. /category/product.html instead of /product.html)
  8. ...more to come.
  
