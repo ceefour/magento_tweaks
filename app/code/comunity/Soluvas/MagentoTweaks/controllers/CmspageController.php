@@ -36,14 +36,16 @@ class Soluvas_MagentoTweaks_CmspageController extends Mage_Cms_PageController
         $pageId = $this->getRequest()
             ->getParam('page_id', $this->getRequest()->getParam('id', false));
             
-		if ($page = Mage::getModel('cms/page')->load($pageId)) {
-			$pageUrl = $page->getIdentifier();
-	        $homeUrl = Mage::getStoreConfig(Mage_Cms_Helper_Page::XML_PATH_HOME_PAGE);
-	        if ($pageUrl == $homeUrl) {
-	        	Mage::log('Redirecting to '. Mage::getUrl(''));
-	        	return $this->getResponse()->setRedirect(Mage::getUrl(''), 301);
-	        }
-		}
+        if (Mage::getStoreConfig('magentotweaks/cms/redirecthome') == 1) {
+			if ($page = Mage::getModel('cms/page')->load($pageId)) {
+				$pageUrl = $page->getIdentifier();
+		        $homeUrl = Mage::getStoreConfig(Mage_Cms_Helper_Page::XML_PATH_HOME_PAGE);
+		        if ($pageUrl == $homeUrl) {
+		        	Mage::log('Redirecting to '. Mage::getUrl(''));
+		        	return $this->getResponse()->setRedirect(Mage::getUrl(''), 301);
+		        }
+			}
+        }
         
         if (!Mage::helper('cms/page')->renderPage($this, $pageId)) {
             $this->_forward('noRoute');

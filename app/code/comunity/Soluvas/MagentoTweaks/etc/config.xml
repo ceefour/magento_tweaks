@@ -70,6 +70,9 @@
 	</global>
 	<default>
 		<magentotweaks>
+			<cms>
+				<redirecthome>1</redirecthome>
+			</cms>
 			<checkout>
 				<register>1</register>
 				<sameasbilling>1</sameasbilling>
