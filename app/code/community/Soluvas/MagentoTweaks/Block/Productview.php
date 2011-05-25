@@ -1,6 +1,7 @@
 <?php
 /**
  * Soluvas
+ * http://www.soluvas.com/
  *
  * NOTICE OF LICENSE
  *
@@ -17,14 +18,18 @@
  */
 
 /**
- * Enhanced Product view Block
+ * Enhanced Product view Block.
+ * 
+ * WARNING: FIXME: Patched version that merges changes from Yoast_MetaRobots!!!!
+ * WARNING: FIXME: Depend on Yoast_MetaRobots to resolve conflict!!!
  *
  * @category   Soluvas
  * @package    Soluvas_MagentoTweaks
  * @author     Soluvas Developers <info@soluvas.com>
  * @see 		Mage_Catalog_Block_Product_View
  */
-class Soluvas_MagentoTweaks_Block_Productview extends Mage_Catalog_Block_Product_View
+class Soluvas_MagentoTweaks_Block_Productview extends /*Mage_Catalog_Block_Product_View*/
+	Yoast_MetaRobots_Block_Catalog_Product_View
 {
     /**
      * Add meta information from product to head block.
@@ -34,7 +39,7 @@ class Soluvas_MagentoTweaks_Block_Productview extends Mage_Catalog_Block_Product
      */
     protected function _prepareLayout()
     {
-        $this->getLayout()->createBlock('catalog/breadcrumbs');
+    	$this->getLayout()->createBlock('catalog/breadcrumbs');
         $headBlock = $this->getLayout()->getBlock('head');
         if ($headBlock) {
             $product = $this->getProduct();
@@ -55,6 +60,14 @@ class Soluvas_MagentoTweaks_Block_Productview extends Mage_Catalog_Block_Product
             } else {
                 $headBlock->setDescription($product->getDescription());
             }
+
+			$robots = $product->getMetaRobots();
+			if ($robots) {
+				$headBlock->setRobots($robots);
+            } else {
+                $headBlock->setRobots($product->getMetaRobots());
+            }
+            
             if ($this->helper('catalog/product')->canUseCanonicalTag()) {
                 $params = array(/*'_ignore_category'=>true*/);
                 if (Mage::getStoreConfig('magentotweaks/catalog/fullproductpath', $this->getStoreId()) == 0)

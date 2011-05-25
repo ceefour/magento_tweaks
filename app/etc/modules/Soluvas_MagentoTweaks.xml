@@ -21,6 +21,10 @@
         <Soluvas_MagentoTweaks>
             <active>true</active>
             <codePool>community</codePool>
+			<!-- WARNING: FIXME: Depend on Yoast_MetaRobots to resolve conflict!!! -->
+			<depends>
+				<Yoast_MetaRobots />
+			</depends>
         </Soluvas_MagentoTweaks>
     </modules>
 </config>
